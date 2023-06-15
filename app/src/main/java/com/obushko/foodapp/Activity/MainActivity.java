@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import com.obushko.foodapp.Adapter.FoodListAdapter;
 import com.obushko.foodapp.Domain.FoodDomain;
@@ -23,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         
         initRecyclerView();
+        bottomNavigation();
+    }
+
+    private void bottomNavigation() {
+        LinearLayout cartBtn = findViewById(R.id.cartBtn);
+        cartBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, CartActivity.class)));
     }
 
     private void initRecyclerView() {
